@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lista de tarefas</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #texto{
+            font-weight: bold;
+            width: 200px;
+            font-size: 13px;
+            font-weight: bold;
+            font-family:"Arial";
+           }
+
+        #div1{
+            color:rgb(58, 26, 3);
+            padding: 30px;
+            margin-top: 0%;
+            background-image: linear-gradient(chocolate, rgb(214, 214, 184)); 
+            text-align: center;
+            font-weight: bold;
+            font-family:"Arial";
+
+        }
+       
+        .div3{
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 5px;    
+            background-color:rgb(214, 214, 184);    
+            font-size: 18px;
+            color:rgb(58, 26, 3);
+            font-family:"Arial";
+
+
+            
+        }
+
+        .button{
+            color:rgb(58, 26, 3);
+            font-weight: bold;
+            font-size: 13px;
+            font-family:"Arial";
+
+        
+        }
+        .ld{
+            width: 50px;
+            height: 20px;
+        }
+
+
+
+    </style>
+</head>
+<body>  
+    <div id="div1" style="display:none">
+    <h2>Lista de tarefas</h2>
+
+    <input type="text" id="texto" placeholder="Digite aqui suas tarefas">
+
+    <button class="button" onclick="adicionar();">Adicionar</button> 
+    </div>
+    
+    <div id="div2">
+
+    </div>
+    
+    <script>
+        function adicionar(){
+        var conteudo=document.getElementById('texto').value;
+        var novoElemento=document.createTextNode(conteudo);
+        var divNova=document.createElement('div');
+        divNova.className="div3";
+        var botao=document.createElement('button'); 
+        var lido=document.createElement('input');
+        lido.setAttribute('type', 'checkbox');
+        botao.className="button";
+        botao.innerHTML="Remover";
+        lido.className="ld";       
+        botao.addEventListener("click",
+        function(){
+            
+            divNova.remove();
+
+        })
+        divNova.appendChild(lido);
+        lido.addEventListener('change',
+        function(){
+            if(this.checked){
+                divNova.style.textDecoration="line-through";
+            }else{
+                divNova.style.textDecoration="none";
+            }
+        })
+        divNova.appendChild(novoElemento);
+        divNova.appendChild(botao);
+        document.getElementById('div2').appendChild(divNova); 
+                   
+        }
+    </script>
+</body>
+</html>
