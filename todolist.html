@@ -55,7 +55,7 @@
 
 
 
-        #login{
+        #logar{
     font-family: "Arial";
     background-image: linear-gradient(chocolate, rgb(214, 214, 184));
     text-align: center; 
@@ -80,16 +80,16 @@
 
     </div>
     
-    <div id="login">
+    <div id="logar">
         <h1 style="font-weight: bolder;">Lista de tarefas</h1>
         <h2 style="font-weight: normal;">Login</h2>
         <form>
-        <input type="text" placeholder="Seu nome" required style="width:250px; height: 30px;"><br><br>
-        <input type="text" placeholder="Seu login" required style="width:250px; height: 30px;"><br><br>
-        <input type="email" placeholder=" Seu email" required style="width:250px; height: 30px;"><br><br>
-        <input type="password" placeholder="Sua senha" required style="width:250px; height: 30px;"><br><br>
-        <input type="password" placeholder="Confirme sua senha" required style="width:250px; height: 30px;"><br><br>
-        <input type="submit" value="Login" required style="width:50px; height: 30px;">     
+        <input id="nome" type="text" placeholder="Seu nome" required style="width:250px; height: 30px;"><br><br>
+        <input id="log" type="text" placeholder="Seu login" required style="width:250px; height: 30px;"><br><br>
+        <input id="mail" type="email" placeholder=" Seu email" required style="width:250px; height: 30px;"><br><br>
+        <input id="s1" type="password" placeholder="Sua senha" required style="width:250px; height: 30px;"><br><br>
+        <input id="s2" type="password" placeholder="Confirme sua senha" required style="width:250px; height: 30px;"><br><br>
+        <button onclick="cadastro();" style="width:50px; height: 30px;"> Logar </button>
     </form>
     </div>
     
@@ -124,8 +124,29 @@
         divNova.appendChild(novoElemento);
         divNova.appendChild(botao);
         document.getElementById('div2').appendChild(divNova); 
-                   
+    }
+
+    function cadastro(){
+        var email = document.getElementById("mail").value;
+        var senha1 = document.getElementById("s1").value;
+        var senha2 = document.getElementById("s2").value;
+        var login = document.getElementById("log").value;
+        var nome = document.getElementById("nome").value;
+
+        if (nome.length > 10){
+            alert("O nome tem mais de 10 letras")
         }
+        if (login.length <10){
+            alert("O login tem menos de 10 letras")
+        }
+        if (senha1 != senha2){
+            alert("As senhas estão distintas")
+        }
+        if (senha1==senha2) (nome.length <= 10) && (login.length >=10)
+            document.getElementById("logar").style.display = "none";
+            document.getElementById("div1").style.display = "inline";
+        
+    }   
     </script>
 </body>
 </html>
